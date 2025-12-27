@@ -3,16 +3,7 @@ const ALBUMS = {
   blonde: { cover: "./blonde.jpg.png" }
 };
 
-function pickRandom(arr){
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-// Apple Music search link
-function appleMusicSearch(song){
-  return `https://music.apple.com/us/search?term=${encodeURIComponent("Frank Ocean " + song)}`;
-}
-
-const MOOD_MAP = {
+const MOODS = {
   sad: {
     label: "Sad",
     channel_orange: ["Thinkin Bout You","Bad Religion","Forrest Gump","Pilot Jones","End"],
@@ -35,23 +26,34 @@ const MOOD_MAP = {
   }
 };
 
+function pickRandom(arr){
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function appleMusicLink(songTitle){
+  // Search URL: always Apple Music
+  return `https://music.apple.com/us/search?term=${encodeURIComponent("Frank Ocean " + songTitle)}`;
+}
+
 function recommendMood(key){
-  const mood = MOOD_MAP[key];
+  const mood = MOODS[key];
+  if (!mood) return;
 
   document.getElementById("moodName").innerText = mood.label;
-  document.getElementById("emptyState").style.display = "none";
-  document.getElementById("twoCol").style.display = "grid";
 
   const co = pickRandom(mood.channel_orange);
   const bl = pickRandom(mood.blonde);
 
+  document.getElementById("empty").style.display = "none";
+  document.getElementById("grid").style.display = "grid";
+
   // Channel Orange
   document.getElementById("coverCO").src = ALBUMS.channel_orange.cover;
   document.getElementById("songCO").innerText = co;
-  document.getElementById("linkCO").href = appleMusicSearch(co);
+  document.getElementById("linkCO").href = appleMusicLink(co);
 
   // Blonde
   document.getElementById("coverB").src = ALBUMS.blonde.cover;
   document.getElementById("songB").innerText = bl;
-  document.getElementById("linkB").href = appleMusicSearch(bl);
+  document.getElementById("linkB").href = appleMusicLink(bl);
 }
