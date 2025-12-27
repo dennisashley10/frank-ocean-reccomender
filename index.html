@@ -8,66 +8,54 @@
 </head>
 
 <body>
-  <main class="wrap">
+  <main class="shell">
+    <header class="top">
+      <div>
+        <h1>Frank Ocean Recommender</h1>
+        <p class="subtitle">Pick a mood. Get one song from <b>Channel Orange</b> + one from <b>Blonde</b>.</p>
+      </div>
+      <img class="frank" src="./frank.jpg" alt="Frank Ocean" />
+    </header>
 
-    <!-- LEFT -->
-    <section class="hero">
-      <h1>Frank Ocean Recommender</h1>
+    <section class="controls">
+      <button class="btn" onclick="recommendMood('sad')">😔 Sad</button>
+      <button class="btn" onclick="recommendMood('happy')">😊 Happy</button>
+      <button class="btn" onclick="recommendMood('chill')">🌊 Chill</button>
+      <button class="btn" onclick="recommendMood('deep')">🧠 Deep</button>
+    </section>
 
-      <img class="frankPic" src="./frank.jpg" alt="Frank Ocean" />
+    <section class="results">
+      <div class="resultsTop">
+        <p class="kicker">Mood</p>
+        <h2 id="moodName">Choose one</h2>
+      </div>
 
-      <p class="sub">
-        Pick a mood and I’ll recommend
-        <b>one song from Channel Orange</b> and
-        <b>one song from Blonde</b>.
+      <p id="empty" class="empty">
+        Click a mood above to get your two picks.
       </p>
 
-      <div class="chips">
-        <button class="chip" onclick="recommendMood('sad')"><span class="emoji">😔</span> Sad</button>
-        <button class="chip" onclick="recommendMood('happy')"><span class="emoji">😊</span> Happy</button>
-        <button class="chip" onclick="recommendMood('chill')"><span class="emoji">🌊</span> Chill</button>
-        <button class="chip" onclick="recommendMood('deep')"><span class="emoji">🧠</span> Deep</button>
+      <div id="grid" class="grid" style="display:none;">
+        <article class="tile">
+          <div class="tileTop">
+            <p class="kicker">Channel Orange</p>
+          </div>
+          <img id="coverCO" class="cover" alt="Channel Orange cover" />
+          <h3 id="songCO" class="song"></h3>
+          <a id="linkCO" class="link" target="_blank" rel="noopener noreferrer">Open in Apple Music</a>
+        </article>
+
+        <article class="tile">
+          <div class="tileTop">
+            <p class="kicker">Blonde</p>
+          </div>
+          <img id="coverB" class="cover" alt="Blonde cover" />
+          <h3 id="songB" class="song"></h3>
+          <a id="linkB" class="link" target="_blank" rel="noopener noreferrer">Open in Apple Music</a>
+        </article>
       </div>
 
-      <p class="small">Click again for different picks ✨</p>
-
-      <hr />
-      <p class="footerNote">made by Ashley 💗</p>
+      <footer class="foot">made by Ashley 💗</footer>
     </section>
-
-    <!-- RIGHT -->
-    <section class="card">
-      <div class="resultTop">
-        <div>
-          <p class="label">Mood</p>
-          <h2 id="moodName">Pick one</h2>
-        </div>
-        <span class="badge">2 picks</span>
-      </div>
-
-      <div id="emptyState" class="emptyState">
-        Choose a mood to see your recommendations.
-      </div>
-
-      <div id="twoCol" class="twoCol" style="display:none;">
-        <!-- Channel Orange -->
-        <div class="pickCard">
-          <p class="label">Channel Orange</p>
-          <img id="coverCO" />
-          <h3 id="songCO"></h3>
-          <a id="linkCO" class="pill" target="_blank">Open in Apple Music</a>
-        </div>
-
-        <!-- Blonde -->
-        <div class="pickCard">
-          <p class="label">Blonde</p>
-          <img id="coverB" />
-          <h3 id="songB"></h3>
-          <a id="linkB" class="pill" target="_blank">Open in Apple Music</a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <script src="script.js"></script>
