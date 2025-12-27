@@ -10,11 +10,10 @@
 <body>
   <main class="wrap">
 
-    <!-- LEFT SIDE -->
+    <!-- LEFT -->
     <section class="hero">
       <h1>Frank Ocean Recommender</h1>
 
-      <!-- Frank image (ROOT FILE) -->
       <img class="frankPic" src="./frank.jpg" alt="Frank Ocean" />
 
       <p class="sub">
@@ -24,28 +23,20 @@
       </p>
 
       <div class="chips">
-        <button class="chip" onclick="recommendMood('sad')">
-          <span class="emoji">😔</span> Sad
-        </button>
-        <button class="chip" onclick="recommendMood('happy')">
-          <span class="emoji">😊</span> Happy
-        </button>
-        <button class="chip" onclick="recommendMood('chill')">
-          <span class="emoji">🌊</span> Chill
-        </button>
-        <button class="chip" onclick="recommendMood('deep')">
-          <span class="emoji">🧠</span> Deep
-        </button>
+        <button class="chip" onclick="recommendMood('sad')"><span class="emoji">😔</span> Sad</button>
+        <button class="chip" onclick="recommendMood('happy')"><span class="emoji">😊</span> Happy</button>
+        <button class="chip" onclick="recommendMood('chill')"><span class="emoji">🌊</span> Chill</button>
+        <button class="chip" onclick="recommendMood('deep')"><span class="emoji">🧠</span> Deep</button>
       </div>
 
-      <p class="small">Click the same mood again for different picks ✨</p>
+      <p class="small">Click again for different picks ✨</p>
 
       <hr />
       <p class="footerNote">made by Ashley 💗</p>
     </section>
 
-    <!-- RIGHT SIDE -->
-    <section id="results" class="card">
+    <!-- RIGHT -->
+    <section class="card">
       <div class="resultTop">
         <div>
           <p class="label">Mood</p>
@@ -55,7 +46,7 @@
       </div>
 
       <div id="emptyState" class="emptyState">
-        Choose a mood on the left to see your recommendations.
+        Choose a mood to see your recommendations.
       </div>
 
       <div id="twoCol" class="twoCol" style="display:none;">
@@ -64,11 +55,7 @@
           <p class="label">Channel Orange</p>
           <img id="coverCO" />
           <h3 id="songCO"></h3>
-          <a id="linkCO" class="pill" target="_blank">Open in Spotify</a>
-          <iframe id="playerCO" width="100%" height="152"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-          </iframe>
+          <a id="linkCO" class="pill" target="_blank">Open in Apple Music</a>
         </div>
 
         <!-- Blonde -->
@@ -76,11 +63,7 @@
           <p class="label">Blonde</p>
           <img id="coverB" />
           <h3 id="songB"></h3>
-          <a id="linkB" class="pill" target="_blank">Open in Spotify</a>
-          <iframe id="playerB" width="100%" height="152"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-          </iframe>
+          <a id="linkB" class="pill" target="_blank">Open in Apple Music</a>
         </div>
       </div>
     </section>
