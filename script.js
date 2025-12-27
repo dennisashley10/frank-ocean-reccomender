@@ -7,14 +7,9 @@ function pickRandom(arr){
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function spotifySearch(title){
-  return `https://open.spotify.com/search/${encodeURIComponent("Frank Ocean " + title)}`;
-}
-
-function embed(url){
-  return url.includes("/track/")
-    ? url.replace("open.spotify.com/", "open.spotify.com/embed/")
-    : "";
+// Apple Music search link
+function appleMusicSearch(song){
+  return `https://music.apple.com/us/search?term=${encodeURIComponent("Frank Ocean " + song)}`;
 }
 
 const MOOD_MAP = {
@@ -42,21 +37,21 @@ const MOOD_MAP = {
 
 function recommendMood(key){
   const mood = MOOD_MAP[key];
+
   document.getElementById("moodName").innerText = mood.label;
+  document.getElementById("emptyState").style.display = "none";
+  document.getElementById("twoCol").style.display = "grid";
 
   const co = pickRandom(mood.channel_orange);
   const bl = pickRandom(mood.blonde);
 
-  document.getElementById("emptyState").style.display="none";
-  document.getElementById("twoCol").style.display="grid";
-
+  // Channel Orange
   document.getElementById("coverCO").src = ALBUMS.channel_orange.cover;
   document.getElementById("songCO").innerText = co;
-  document.getElementById("linkCO").href = spotifySearch(co);
-  document.getElementById("playerCO").src = embed(spotifySearch(co));
+  document.getElementById("linkCO").href = appleMusicSearch(co);
 
+  // Blonde
   document.getElementById("coverB").src = ALBUMS.blonde.cover;
   document.getElementById("songB").innerText = bl;
-  document.getElementById("linkB").href = spotifySearch(bl);
-  document.getElementById("playerB").src = embed(spotifySearch(bl));
+  document.getElementById("linkB").href = appleMusicSearch(bl);
 }
